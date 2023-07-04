@@ -1,0 +1,36 @@
+#include <stdio.h>
+//Функція для обчислення НСД
+int diln(int a,int b){
+    if(b==0){
+        return a;
+    }
+    return diln(b,a%b);
+}
+//Функція для обчислення НСК
+int crat(int a,int b){
+    return(a*b)/diln(a,b);
+}
+int main(){
+    int q,i,result;
+    printf("Enter quantity of numbers\n");
+    //Введення кількості чисел
+    scanf("%d", &q);
+    //Додаємо перевірку умови
+    if(q>2&&q<20){
+    int numbers[q];
+    printf("Enter numbers\n");
+    //Введення чисел
+    for(i=0;i<q;i++) {
+        scanf("%d",&numbers[i]);
+    }
+    //Присвоюємо result перше значення numbers
+    result = numbers[0];
+    //Використовуємо функцію для НСК
+    for (i=1;i<q;i++){
+    result=crat(result,numbers[i]);
+    }
+    //Виведення результату
+    printf("Naymensh crat %d\n",result);
+    return 0;
+}else printf("Wrong numbers");
+}
