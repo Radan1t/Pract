@@ -1,0 +1,24 @@
+#include <stdio.h>
+int quantity_numbers(int a) {
+    // Виводимо лише 2, оскыльки можливы лише варыанти(5;9)
+    if (a == 1)
+        return 2;
+    //Виводимо 4, оскыльки можливы лише варыанти(55;99;59;95)
+    if (a == 2)
+        return 4;
+    // Calculation of the number of numbers with the specified digit
+    return quantity_numbers(a-1)+quantity_numbers(a-2);
+}
+int main() {
+    int q;
+    printf("Enter the number of digits: ");
+    scanf("%d",&q);
+    //Додаємо перевірку умови
+    if(q>30){
+        printf("Wrong number\n");
+        return 0;
+    }
+    // Виведення результату
+    printf("quantity of numbers:%d\n",quantity_numbers(q));
+    return 0;
+}
