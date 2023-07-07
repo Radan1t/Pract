@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <math.h>
+int main() {
+    int x1, y1, x2, y2,dx,dy,dxsqear,dysqear,sqearsum;
+    float l;
+    //Введення даних
+    printf("input first vector points (x y):");
+    scanf("%d %d",&x1,&y1);
+    printf("input second vector points (x y):");
+    scanf("%d %d", &x2, &y2);
+    //Використовуємо алгоритм для пошуку довжини вектора
+    //Від кординат кінця віднімаємо координати початку
+    dx=x2-x1;
+    dy=y2-y1;
+    //Підносимо до квадрату
+    dxsqear=dx*dx;
+    dysqear=dy*dy;
+    //Сума квадратів
+    sqearsum=dxsqear+dysqear;
+    //Дістаємо корінь з суми
+    l=sqrt(sqearsum);
+    // Виводимо результат з точністю до шести знаків після коми
+    printf("Vector Length: %.6f\n",l);
+    return 0;
+}
