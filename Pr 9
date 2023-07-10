@@ -1,0 +1,37 @@
+#include <stdio.h>
+int stepmin(int x, int y) {
+    //Визначення різниці між x та y
+    int diff=y-x;
+    //Коли diff <= 3
+    if (diff<=3){
+        return diff;
+    }
+    // Ініціалізація змінних
+    int step=0;
+    int step2=1;
+    int step3=2;
+    // Знаходження найближчої степені двійки, більшої за diff
+    while (step3<=diff){
+        step2++;
+        step3*=2;
+    }
+    // Обчислення кількості кроків
+    if (diff<=(step3-step3/2)){
+        step=step2;
+    } else{
+        step=step2+1;
+    }
+    return step;
+}
+int main(){
+    int x,y;
+    //Введеня зміних
+    printf("x: ");
+    scanf("%d",&x);
+    printf("y: ");
+    scanf("%d",&y);
+    //Використання раніше створеної функції
+    int step=stepmin(x,y);
+    printf("Min count of steps : %d\n",step);
+    return 0;
+}
